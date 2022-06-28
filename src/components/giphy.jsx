@@ -7,9 +7,9 @@ const Giphy = () => {
 
     const [data, setData] = useState([])
     const [search, setSearch] = useState("")
-    const [isLoading, setIsLoading] = useState(false) // used for loading 
-    const [isError, setIsError] = useState(false) // when an eroor pops up
-    useEffect(()=> {       // tells React that your component needs to do something after render.(Or else it gives a promise)
+    const [isLoading, setIsLoading] = useState(false) 
+    const [isError, setIsError] = useState(false) 
+    useEffect(()=> {       
       const fetchData = async () =>{
         setIsError(false)
         setIsLoading(true)
@@ -22,7 +22,7 @@ const Giphy = () => {
           }        
         });
 
-        console.log(results);  // check in the developer console that we are getting the gifs or not
+        console.log(results);  
         setData(results.data.data);
 
         } catch (err) {
@@ -35,7 +35,7 @@ const Giphy = () => {
       };
 
       fetchData()
-    }, [])  // []--> dependency array to stop looping
+    }, []) 
 
   const renderGifs = () => {
     if(isLoading){
